@@ -1,0 +1,1 @@
+在shopsystem中的apps中创建app的语法不再是manage.py startapp appname 了，而是django-admin startapp appname
