@@ -15,15 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from shopsystem.apps.catalog.viewsdir import registerView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r"^$", "shopsystem.apps.catalog.viewsdir.index.index"),
-    url(r"^index/$", "shopsystem.apps.catalog.viewsdir.index.index"),
-    url(r"showlogin/", "shopsystem.apps.catalog.viewsdir.registerView.showlogin"),
-    url(r"^loginIn/$",  registerView.login),
-    url(r"showregist/", "shopsystem.apps.catalog.viewsdir.registerView.showregis"),
-    url(r"logout/", "shopsystem.apps.catalog.viewsdir.registerView.logout"),
-    url(r"regist/$", "shopsystem.apps.catalog.viewsdir.registerView.register"),
-]
+    url(r"^",include('shopsystem.apps.catalog.urls')),
+    #url(r"^$", "shopsystem.apps.catalog.index.index"),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )

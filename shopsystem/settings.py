@@ -97,17 +97,26 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh_cn'
 
-TIME_ZONE = 'cst'
+DATE_FORMAT = 'Y-m-d'
 
+TIME_ZONE = 'Asia/Shanghai'
+
+# 是否开启国际化支持，不开启时可以不加载翻译模块优化性能
 USE_I18N = True
 
+# 本地化格式支持，为True使用系统locale设置显示数字、时间等格式
 USE_L10N = True
 
 USE_TZ = True
 
+# 是否设置Etag, 设置etag可以降低网络资源开销，但会增加服务器性能开销
+USE_ETAGS = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(SETTINGS_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

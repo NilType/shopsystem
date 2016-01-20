@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 这句用于静态文件的加载 -->
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>商品页面</title>
+	<link rel="stylesheet" href="/static/style/base.css" type="text/css">
+	<link rel="stylesheet" href="/static/style/global.css" type="text/css">
+	<link rel="stylesheet" href="/static/style/header.css" type="text/css">
+	<link rel="stylesheet" href="/static/style/goods.css" type="text/css">
+	<link rel="stylesheet" href="/static/style/common.css" type="text/css">
+	<link rel="stylesheet" href="/static/style/bottomnav.css" type="text/css">
+	<link rel="stylesheet" href="/static/style/footer.css" type="text/css">
+
+	<!--引入jqzoom css -->
+	<link rel="stylesheet" src="/static/style/jqzoom.css" type="text/css">
+
+	<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/static/js/header.js"></script>
+	<script type="text/javascript" src="/static/js/goods.js"></script>
+	<script type="text/javascript" src="/static/js/jqzoom-core.js"></script>
+    <!--标题 -->
+	<title>
+      {% block title %}
+        {% if page_title %}{{ page_title }} - {% endif %} {{ site_name }}
+      {% endblock %}
+    </title>
+
+    <meta name="keywords" content="{{ meta_keywords }}" />
+    <meta name="description" content="{{ meta_description }}" />
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>

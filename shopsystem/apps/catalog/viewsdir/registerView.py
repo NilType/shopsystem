@@ -45,7 +45,7 @@ def login(request):
     ifsave = urllib.parse.unquote(request.POST.get("ifSave"))
 
     user = None
-    print(userName)
+
     try:
         user = User.objects.get(userName=userName)
     except Exception as ex:
@@ -70,7 +70,7 @@ def login(request):
     if ifsave == "true":
         dt = datetime.datetime.now() + datetime.timedelta(hours=5)
         response = HttpResponse()
-        response.set_cookie("userName", user.userName, expires=dt)
+        response.set_cookie("userName", user.userName, expires=dt)#设置cookies
         response.set_cookie("password", user.password, expires=dt)
 
     return HttpResponse(Message(0, "登陆成功").getJson())
